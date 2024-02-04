@@ -16,17 +16,6 @@ public class Main {
     public static String purple = "\u001B[35m";
     public static String cyan = "\u001B[36m";
 
-    public static String getRandomFromArray(String[] array) {
-        // Create a Random object
-        Random random = new Random();
-
-        // Generate a random index within the range of the array length
-        int randomIndex = random.nextInt(array.length);
-
-        // Return the randomly selected name
-        return array[randomIndex];
-    }
-
     // Driver function
     public static void main(String[] args) {
         // Declarations
@@ -81,6 +70,17 @@ public class Main {
         }
     }
 
+    public static String getRandomFromArray(String[] array) {
+        // Create a Random object
+        Random random = new Random();
+
+        // Generate a random index within the range of the array length
+        int randomIndex = random.nextInt(array.length);
+
+        // Return the randomly selected name
+        return array[randomIndex];
+    }
+
     public static List<JobPosition> getRecommendedPositions(Candidate candidate, List<JobPosition> jobPostings) {
         List<JobPosition> stage1 = new ArrayList<JobPosition>();
 
@@ -113,7 +113,9 @@ public class Main {
 
     // A function that sorts a list according to the values of an array
     // used to sort the recommended jobs for a candidate
+    // Selection Sort Algorithm
     public static void sort(int arr[], List<JobPosition> list) {
+
         int n = arr.length;
 
         // One by one move boundary of unsorted subarray
@@ -179,7 +181,7 @@ class JobPosition extends Entity {
 }
 
 class Candidate extends Entity {
-    private String resume;
+    public String resume;
     public String demographics;
     public List<JobPosition> getInterestedPositions() {
         return interestedPositions;
